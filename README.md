@@ -2,7 +2,7 @@
 
 ### BCA Student | Web Developer | Tech Learner
 
-I am a passionate BCA third-year student at **C. Abdul Hakeem College Melvisharam**, interested in web development, software development, and modern technology.
+I am a passionate BCA third-year student at **C. Abdul Hakeem College@Melvisharam**, interested in web development, software development, and modern technology.
 
 ---
 

@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monish B | BCA Student Portfolio</title>
+
+    <meta name="description"
+        content="Professional portfolio of Monish B, a BCA third-year student and aspiring web developer.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #7657ff;
+            --primary-dark: #5a3fe0;
+            --secondary: #00c9a7;
+            --bg: #0c1118;
+            --bg-secondary: #151d28;
+            --card: rgba(255, 255, 255, 0.07);
+            --text: #f3f6fb;
+            --muted: #aab5c5;
+            --border: rgba(255, 255, 255, 0.13);
+            --shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+            --transition: 0.3s ease;
+        }
+
+        body.light-theme {
+            --bg: #f5f7fb;
+            --bg-secondary: #ffffff;
+            --card: #ffffff;
+            --text: #172033;
+            --muted: #5d687b;
+            --border: rgba(23, 32, 51, 0.12);
+            --shadow: 0 12px 30px rgba(40, 45, 75, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background var(--transition), color var(--transition);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* Header */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: color-mix(in srgb, var(--bg) 86%, transparent);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.94rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-btn,
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: var(--card);
+            color: var(--text);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover,
+        .menu-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 130px;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(118, 87, 255, 0.2), transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(0, 201, 167, 0.13), transparent 30%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .hero-text small {
+            color: var(--secondary);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.7rem, 6vw, 5rem);
+            line-height: 1.05;
+            margin: 18px 0;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 1.06rem;
+        }
+
+        .hero-buttons,
+        .project-links,
+        .resume-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 13px 19px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(118, 87, 255, 0.35);
+        }
+
+        .btn-outline {
+            border-color: var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-card {
+            min-height: 390px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: linear-gradient(145deg, var(--card), transparent);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.22;
+            filter: blur(25px);
+        }
+
+        .profile-circle {
+            width: 215px;
+            height: 215px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            border: 8px solid rgba(255, 255, 255, 0.16);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 4.9rem;
+            font-weight: 800;
+        }
+
+        .floating-badge {
+            position: absolute;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow);
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .floating-badge i {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+
+        .badge-one {
+            top: 55px;
+            left: 28px;
+        }
+
+        .badge-two {
+            right: 28px;
+            bottom: 55px;
+        }
+
+        /* Common Cards */
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--card);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-7px);
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 17px;
+        }
+
+        .tag {
+            padding: 5px 9px;
+            border-radius: 20px;
+            background: rgba(118, 87, 255, 0.14);
+            color: var(--primary);
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 370px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background:
+                linear-gradient(rgba(118, 87, 255, 0.2), rgba(0, 201, 167, 0.2)),
+                var(--bg-secondary);
+            color: var(--primary);
+            font-size: 6rem;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 17px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .detail-box {
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card);
+        }
+
+        .detail-box strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .detail-box span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card i {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+        }
+
+        /* Certificates */
+
+        .certificate-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-card i {
+            margin-bottom: 16px;
+            color: var(--secondary);
+            font-size: 2.1rem;
+        }
+
+        .certificate-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .certificate-card .btn {
+            margin-top: 20px;
+            padding: 9px 13px;
+            font-size: 0.82rem;
+        }
+
+        .certificate-card .fa-aws {
+            color: #ff9900;
+        }
+
+        /* Internship */
+
+        .internship-box {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 22px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--primary);
+            border-radius: 16px;
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .internship-icon {
+            width: 62px;
+            height: 62px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: rgba(118, 87, 255, 0.15);
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .internship-box h3 {
+            margin-bottom: 6px;
+        }
+
+        .internship-box p {
+            color: var(--muted);
+        }
+
+        .internship-status {
+            padding: 8px 13px;
+            border-radius: 20px;
+            background: rgba(0, 201, 167, 0.14);
+            color: var(--secondary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* Projects */
+
+        .project-card {
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .project-icon {
+            height: 160px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 4rem;
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-links {
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .project-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Resume */
+
+        .resume-section {
+            text-align: center;
+        }
+
+        .resume-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 35px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .resume-box i {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 3rem;
+        }
+
+        .resume-box h3 {
+            margin-bottom: 9px;
+        }
+
+        .resume-box p {
+            margin-bottom: 22px;
+            color: var(--muted);
+        }
+
+        /* Contact */
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 25px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 21px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card + .contact-card {
+            margin-top: 16px;
+        }
+
+        .contact-card i {
+            width: 32px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            background: var(--bg-secondary);
+            color: var(--text);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 25px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+
+        .social-links a {
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll to top */
+
+        #scrollTop {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 999;
+            display: none;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        #scrollTop.show {
+            display: block;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 950px) {
+            .hero-content,
+            .about-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 540px;
+                margin: auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            section {
+                padding: 75px 0;
+            }
+
+            .menu-btn {
+                display: grid;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 74px;
+                left: 4%;
+                display: none;
+                width: 92%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 10px;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                background: var(--bg-secondary);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 13px;
+                border-radius: 7px;
+            }
+
+            .nav-links a:hover {
+                background: var(--card);
+            }
+
+            .skills-grid,
+            .cards-grid,
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                min-height: 310px;
+            }
+
+            .profile-circle {
+                width: 160px;
+                height: 160px;
+                font-size: 3.7rem;
+            }
+
+            .floating-badge {
+                font-size: 0.75rem;
+            }
+
+            .badge-one {
+                top: 25px;
+                left: 14px;
+            }
+
+            .badge-two {
+                right: 14px;
+                bottom: 25px;
+            }
+
+            .about-image {
+                min-height: 260px;
+            }
+
+            .internship-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .internship-icon {
+                margin: auto;
+            }
+
+            .internship-status {
+                justify-self: center;
+            }
+
+            .resume-buttons {
+                justify-content: center;
+            }
+        }
+		.profile-circle {
+    overflow: hidden;
+}
+@media (max-width: 700px) {
+    .profile-circle {
+        width: 160px;
+        height: 160px;
+        font-size: 3.7rem;
+    }
+}
+.profile-circle {
+    width: 215px;
+    height: 215px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    border: 8px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-size: 4.9rem;
+    font-weight: 800;
+    overflow: hidden;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+
+            <a href="#home" class="logo">
+                Monish <span>B</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#internship">Internship</a>
+                <a href="#projects">Projects</a>
+                <a href="#resume">Resume</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+
+                <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <div class="hero-text">
+                    <small>Welcome to my portfolio</small>
+
+                    <h1>
+                        Hi, I'm <span>Monish B</span>
+                    </h1>
+
+                    <p>
+                        I am a passionate BCA third-year student at C. Abdul Hakeem College,
+                        interested in web development, software development, and modern
+                        technology.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i>
+                            View Projects
+                        </a>
+
+                        <a href="#resume" class="btn btn-outline">
+                            <i class="fas fa-file-lines"></i>
+                            View Resume
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <div class="profile-circle">
+    <img src="monish.jpg" alt="Monish B profile photo">
+</div>
+					
+
+                    <div class="floating-badge badge-one">
+                        <i class="fas fa-graduation-cap"></i>
+                        BCA Student
+                    </div>
+
+                    <div class="floating-badge badge-two">
+                        <i class="fas fa-laptop-code"></i>
+                        Web Developer
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>About <span class="highlight">Me</span></h2>
+                    <p>Get to know me and my academic journey.</p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-image">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+
+                    <div class="about-text">
+                        <h3>Building my future through technology</h3>
+
+                        <p>
+                            I am Monish B, currently pursuing my Bachelor of Computer Applications
+                            in my third year at C. Abdul Hakeem College.
+                        </p>
+
+                        <p>
+                            I enjoy creating responsive websites, developing user interfaces,
+                            learning programming languages, and building practical projects
+                            using modern web technologies.
+                        </p>
+
+                        <p>
+                            My career goal is to become a skilled full-stack developer and
+                            contribute to innovative software solutions.
+                        </p>
+
+                        <div class="details">
+                            <div class="detail-box">
+                                <strong>Education</strong>
+                                <span>Bachelor of Computer Applications</span>
+                            </div>
+
+                            <div class="detail-box">
+                                <strong>Academic Year</strong>
+                                <span>Third Year</span>
+                            </div>
+
+                            <div class="detail-box">
+                                <strong>College</strong>
+                                <span>C. Abdul Hakeem College(Autonomous),Melvisharam</span>
+                            </div>
+
+                            <div class="detail-box">
+                                <strong>Role</strong>
+                                <span>Student & Aspiring Developer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>My <span class="highlight">Skills</span></h2>
+                    <p>Technologies and tools I use while learning and developing.</p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="card skill-card">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML5</h3>
+                        <p>Creating semantic and well-structured web pages.</p>
+                    </div>
+
+                    <div class="card skill-card">
+                        <i class="fab fa-css3-alt"></i>
+                        <h3>CSS3</h3>
+                        <p>Designing modern, attractive, and responsive interfaces.</p>
+                    </div>
+
+                    <div class="card skill-card">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript</h3>
+                        <p>Adding interactivity and dynamic functionality to websites.</p>
+                    </div>
+
+                    <div class="card skill-card">
+                        <i class="fab fa-python"></i>
+                        <h3>Python</h3>
+                        <p>Learning programming logic and application development.</p>
+                    </div>
+
+                    <div class="card skill-card">
+                        <i class="fas fa-database"></i>
+                        <h3>SQL</h3>
+                        <p>Working with databases, queries, tables, and data management.</p>
+                    </div>
+
+                    <div class="card skill-card">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub</h3>
+                        <p>Managing repositories and publishing web projects.</p>
+                    </div>
+
+                    <div class="card skill-card">
+                        <i class="fas fa-code"></i>
+                        <h3>VS Code</h3>
+                        <p>Using Visual Studio Code for efficient development.</p>
+                    </div>
+
+                    <div class="card skill-card">
+                        <i class="fas fa-mobile-screen"></i>
+                        <h3>Responsive UI</h3>
+                        <p>Building websites for desktop, tablet, and mobile devices.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates -->
+        <section id="certificates">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>My <span class="highlight">Certificates</span></h2>
+                    <p>Courses and certifications that support my technical growth.</p>
+                </div>
+
+                <div class="cards-grid">
+
+                    <!-- AI Studio -->
+                    <div class="card certificate-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI Studio</h3>
+                        <p>
+                            Certificate related to artificial intelligence tools,
+                            prompt design, and AI-based application development.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">AI</span>
+                            <span class="tag">AI Studio</span>
+                            <span class="tag">Prompting</span>
+                        </div>
+
+                        <a href="ai studio.jpg"
+                            class="btn btn-outline"
+                            target="_blank">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </a>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="card certificate-card">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript Certificate</h3>
+                        <p>
+                            Certificate covering JavaScript fundamentals,
+                            functions, events, DOM manipulation, and web interaction.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">DOM</span>
+                            <span class="tag">Web</span>
+                        </div>
+
+                        <a href="javascript.jpg"
+                            class="btn btn-outline"
+                            target="_blank">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </a>
+                    </div>
+
+                    <!-- Python & SQL -->
+                    <div class="card certificate-card">
+                        <i class="fab fa-python"></i>
+                        <h3>Python & SQL Certificate</h3>
+                        <p>
+                            Certificate covering Python programming concepts,
+                            database basics, SQL queries, and data handling.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Database</span>
+                        </div>
+
+                        <a href="python and sql.jpg"
+                            class="btn btn-outline"
+                            target="_blank">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </a>
+                    </div>
+
+                    <!-- Computer Network -->
+                    <div class="card certificate-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Computer Network Certificate</h3>
+                        <p>
+                            Certificate covering networking fundamentals,
+                            protocols, network devices, and communication concepts.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">Networking</span>
+                            <span class="tag">Protocols</span>
+                            <span class="tag">Security</span>
+                        </div>
+
+                        <a href="computer network .jpg"
+                            class="btn btn-outline"
+                            target="_blank">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </a>
+                    </div>
+
+                    <!-- DBMS -->
+                    <div class="card certificate-card">
+                        <i class="fas fa-database"></i>
+                        <h3>DBMS Certificate</h3>
+                        <p>
+                            Certificate covering database management systems,
+                            relational databases, SQL queries, normalization,
+                            and database design concepts.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">DBMS</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Database</span>
+                        </div>
+
+                        <a href="DBMS.jpg"
+                            class="btn btn-outline"
+                            target="_blank">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </a>
+                    </div>
+
+                    <!-- AWS -->
+                    <div class="card certificate-card">
+                        <i class="fab fa-aws"></i>
+                        <h3>AWS Certificate</h3>
+                        <p>
+                            Certificate related to cloud computing fundamentals,
+                            AWS services, cloud storage, deployment, and basic
+                            cloud architecture.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">AWS</span>
+                            <span class="tag">Cloud</span>
+                            <span class="tag">Deployment</span>
+                        </div>
+
+                        <a href="aws.jpg"
+                            class="btn btn-outline"
+                            target="_blank">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship -->
+        <section id="internship">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>My <span class="highlight">Internship</span></h2>
+                    <p>My practical work experience at GP Jewellery, Arcot.</p>
+                </div>
+
+                <div class="internship-box">
+
+                    <div class="internship-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+
+                    <div>
+                        <h3>Internship at GP Jewellery, Arcot</h3>
+
+                        <p>
+                            I completed my internship at GP Jewellery, Arcot, where I gained
+                            practical experience in jewellery business operations and
+                            customer service.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">Billing</span>
+                            <span class="tag">Pledging</span>
+                            <span class="tag">Customer Handling</span>
+                        </div>
+                    </div>
+
+                    <div class="internship-status">
+                        Completed
+                    </div>
+
+                </div>
+
+                <!-- Internship Roles -->
+                <div class="cards-grid" style="margin-top: 25px;">
+
+                    <div class="card">
+                        <i class="fas fa-file-invoice"
+                            style="font-size: 2rem; color: var(--primary);"></i>
+
+                        <h3>Billing</h3>
+
+                        <p>
+                            Prepared customer bills, checked product details, handled
+                            billing records, and supported daily sales transactions.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fas fa-hand-holding-dollar"
+                            style="font-size: 2rem; color: var(--primary);"></i>
+
+                        <h3>Pledging</h3>
+
+                        <p>
+                            Assisted with jewellery pledging-related activities,
+                            customer documentation, and basic transaction procedures.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fas fa-users"
+                            style="font-size: 2rem; color: var(--primary);"></i>
+
+                        <h3>Customer Handling</h3>
+
+                        <p>
+                            Communicated with customers, understood their requirements,
+                            answered questions, and provided polite service.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Internship Certificate -->
+                <div class="card certificate-card" style="margin-top: 25px;">
+
+                    <i class="fas fa-file-circle-check"></i>
+
+                    <h3>GP Jewellery Internship Certificate</h3>
+
+                    <p>
+                        Certificate for successfully completing the internship at
+                        GP Jewellery, Arcot, with experience in billing, pledging,
+                        and customer handling.
+                    </p>
+
+                    <div class="tag-list">
+                        <span class="tag">GP Jewellery</span>
+                        <span class="tag">Arcot</span>
+                        <span class="tag">Internship</span>
+                    </div>
+
+                    <a href="intern-cert.jpg"
+                        class="btn btn-outline"
+                        target="_blank">
+                        <i class="fas fa-eye"></i>
+                        View Internship Certificate
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>My <span class="highlight">Projects</span></h2>
+                    <p>Projects created using HTML, CSS, JavaScript, GitHub, and VS Code.</p>
+                </div>
+
+                <div class="cards-grid">
+
+                    <!-- Jewellery Billing -->
+                    <div class="card project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+
+                        <div class="project-content">
+                            <h3>Jewellery Billing System</h3>
+
+                            <p>
+                                A web-based jewellery billing project designed to
+                                prepare and manage jewellery bills through a simple
+                                and user-friendly interface.
+                            </p>
+
+                            <div class="tag-list">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">GitHub</span>
+                                <span class="tag">VS Code</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://monish0502.github.io/Jeweleery_billing/"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    View Project
+                                </a>
+
+                                <a href="https://github.com/monish0502"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports India -->
+                    <div class="card project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+
+                        <div class="project-content">
+                            <h3>Sports India Website</h3>
+
+                            <p>
+                                A responsive sports website created to present
+                                sports-related content with a clean and engaging
+                                user interface.
+                            </p>
+
+                            <div class="tag-list">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">GitHub</span>
+                                <span class="tag">VS Code</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://monish0502.github.io/Sports-india/"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    View Project
+                                </a>
+
+                                <a href="https://github.com/monish0502"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Portfolio -->
+                    <div class="card project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+
+                        <div class="project-content">
+                            <h3>3D Personal Portfolio</h3>
+
+                            <p>
+                                A personal portfolio website showcasing my profile,
+                                skills, projects, and professional interests through
+                                a modern visual design.
+                            </p>
+
+                            <div class="tag-list">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">GitHub</span>
+                                <span class="tag">VS Code</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://monish0502.github.io/3D-Portfolio/"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    View Project
+                                </a>
+
+                                <a href="https://github.com/monish0502"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume -->
+        <section id="resume" class="resume-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>My <span class="highlight">Resume</span></h2>
+                    <p>View or download my latest resume.</p>
+                </div>
+
+                <div class="resume-box">
+                    <i class="fas fa-file-pdf"></i>
+
+                    <h3>Monish B - Resume</h3>
+
+                    <p>
+                        Download my resume to learn more about my education,
+                        technical skills, projects, certificates, and career goals.
+                    </p>
+
+                    <div class="resume-buttons">
+                       
+                        <a href="resume.pdf"
+                            class="btn btn-primary"
+                            target="_blank">
+                            <i class="fas fa-eye"></i>
+                            View Resume
+                        </a>
+
+                        <!-- Downloads the resume -->
+                        <a href="resume.pdf"
+                            class="btn btn-outline"
+                            download>
+                            <i class="fas fa-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Contact <span class="highlight">Me</span></h2>
+                    <p>Feel free to connect with me.</p>
+                </div>
+
+                <div class="contact-wrapper">
+
+                    <div>
+
+                        <!-- Email -->
+                        <div class="contact-card">
+                            <i class="fas fa-envelope"></i>
+
+                            <div>
+                                <h4>Email</h4>
+
+                                
+                                <a href="mailto:monish0502b@gmail.com">
+                                    monish0502b@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Number -->
+                        <div class="contact-card">
+                            <i class="fas fa-phone"></i>
+
+                            <div>
+                                <h4>Mobile Number</h4>
+
+                                
+                                <a href="tel:+918610973341">
+                                    +91 86109 73341
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="contact-card">
+                            <i class="fab fa-linkedin"></i>
+
+                            <div>
+                                <h4>LinkedIn</h4>
+
+                               
+                                <a href="https://www.linkedin.com/in/monish-b-217613325"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    monish-b-217613325
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Instagram -->
+                        <div class="contact-card">
+                            <i class="fab fa-instagram"></i>
+
+                            <div>
+                                <h4>Instagram</h4>
+
+                                
+                                <a href="https://www.instagram.com/_itz_monish._.05?igsh=MTI0aWQ2dmxnZ3JneQ=="
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    _itz_monish._.05
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- GitHub -->
+                        <div class="contact-card">
+                            <i class="fab fa-github"></i>
+
+                            <div>
+                                <h4>GitHub</h4>
+
+                                <a href="https://github.com/monish0502"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    github.com/monish0502
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="contact-card">
+                            <i class="fas fa-location-dot"></i>
+
+                            <div>
+                                <h4>Location</h4>
+                                <p>Tamil Nadu, India</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact Form -->
+                    <form class="contact-form" onsubmit="sendMessage(event)">
+
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+
+                            <input type="text"
+                                id="name"
+                                placeholder="Enter your name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+
+                            <input type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+
+                            <textarea id="message"
+                                placeholder="Write your message..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+
+            <div class="social-links">
+
+                <a href="https://github.com/monish0502"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+
+               
+                <a href="https://www.linkedin.com/in/monish-b-217613325"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                
+                <a href="https://www.instagram.com/_itz_monish._.05?igsh=MTI0aWQ2dmxnZ3JneQ=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+            
+                <a href="tel:+918610973341"
+                    aria-label="Mobile">
+                    <i class="fas fa-phone"></i>
+                </a>
+
+                <a href="mailto:monish0502b@gmail.com"
+                    aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+            </div>
+
+            <p>
+                © <span id="year"></span> Monish B. All Rights Reserved.
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = themeToggle.querySelector("i");
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        const scrollTopBtn = document.getElementById("scrollTop");
+
+        /* Restore saved theme */
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "light") {
+            document.body.classList.add("light-theme");
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon");
+        }
+
+        /* Dark/light theme */
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("light-theme");
+
+            const lightMode =
+                document.body.classList.contains("light-theme");
+
+            localStorage.setItem(
+                "theme",
+                lightMode ? "light" : "dark"
+            );
+
+            themeIcon.classList.toggle("fa-sun", !lightMode);
+            themeIcon.classList.toggle("fa-moon", lightMode);
+        });
+
+        /* Mobile navigation */
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+
+            const menuIcon = menuBtn.querySelector("i");
+
+            menuIcon.classList.toggle("fa-bars");
+            menuIcon.classList.toggle("fa-xmark");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+
+                const menuIcon = menuBtn.querySelector("i");
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            });
+        });
+
+        /* Scroll-to-top visibility */
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        });
+
+        /* Scroll to top */
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        /* Contact form demo */
+        function sendMessage(event) {
+            event.preventDefault();
+
+            alert(
+                "Thank you for contacting me! Please connect this form to Formspree, EmailJS, or a backend service to receive messages."
+            );
+
+            event.target.reset();
+        }
+
+        /* Footer year */
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

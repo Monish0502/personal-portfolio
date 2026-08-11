@@ -10,7 +10,7 @@ I am a passionate BCA third-year student at **C. Abdul Hakeem College**, interes
 
 - 🎓 BCA 3rd Year Student
 - 🏫 C. Abdul Hakeem College
-- 📍 Chennai, Tamil Nadu, India
+- 📍 Arcot, Tamil Nadu, India
 - 💻 Interested in HTML, CSS, JavaScript, Python, SQL, and web design
 - 🚀 Always learning and building real-world projects
 
